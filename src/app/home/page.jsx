@@ -958,9 +958,9 @@ export default function ExpenseTrackerApp() {
                 <p className="text-slate-400 text-xs">Track expenses</p>
               </div>
             </div>
-            <div className="w-9 h-9 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center">
+            {/* <div className="w-9 h-9 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-sm">JD</span>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

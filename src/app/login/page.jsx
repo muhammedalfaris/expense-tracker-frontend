@@ -132,7 +132,7 @@ export default function ExpenseLogin() {
         <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 via-teal-500 to-amber-400 rounded-3xl opacity-75 blur-lg animate-spin-slow" />
 
         {/* Login card */}
-        <div className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-emerald-500/30 shadow-2xl p-8 overflow-hidden">
+        <div className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-emerald-500/30 shadow-2xl p-6 md:p-8 overflow-hidden">
           {/* Animated scanline effect */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute w-full h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent opacity-50" 
@@ -140,34 +140,34 @@ export default function ExpenseLogin() {
           </div>
 
           {/* Corner accents */}
-          <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-emerald-400 animate-pulse" />
-          <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-amber-400 animate-pulse" style={{ animationDelay: '0.5s' }} />
-          <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-teal-400 animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-emerald-400 animate-pulse" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-4 left-4 w-6 h-6 md:w-8 md:h-8 border-t-2 border-l-2 border-emerald-400 animate-pulse" />
+          <div className="absolute top-4 right-4 w-6 h-6 md:w-8 md:h-8 border-t-2 border-r-2 border-amber-400 animate-pulse" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute bottom-4 left-4 w-6 h-6 md:w-8 md:h-8 border-b-2 border-l-2 border-teal-400 animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute bottom-4 right-4 w-6 h-6 md:w-8 md:h-8 border-b-2 border-r-2 border-emerald-400 animate-pulse" style={{ animationDelay: '1.5s' }} />
 
           {/* Header */}
-          <div className="relative mb-8 text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-2xl mb-4 shadow-lg relative overflow-hidden group">
+          <div className="relative mb-6 md:mb-8 text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-2xl mb-4 shadow-lg relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              <Wallet className="text-white relative z-10 transform group-hover:scale-110 transition-transform duration-300" size={40} />
+              <Wallet className="text-white relative z-10 transform group-hover:scale-110 transition-transform duration-300 w-8 h-8 md:w-10 md:h-10" />
               <div className="absolute inset-0 animate-ping opacity-20">
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full" />
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white rounded-full" />
               </div>
             </div>
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 mb-2 tracking-tight animate-gradient">
+            <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 mb-2 tracking-tight animate-gradient">
               Welcome Back
             </h1>
-            <p className="text-slate-400 text-sm flex items-center justify-center gap-2">
-              <TrendingUp size={16} className="text-emerald-400 animate-bounce" />
-              Continue your financial journey
+            <p className="text-slate-400 text-xs md:text-sm flex items-center justify-center gap-2">
+              <TrendingUp className="text-emerald-400 animate-bounce w-3 h-3 md:w-4 md:h-4" />
+              Continue tracking your expenses
             </p>
           </div>
 
-          <div className="space-y-5 relative">
+          <div className="space-y-4 md:space-y-5 relative">
             {/* Email field */}
             <div className="relative group">
-              <label className="block text-slate-300 text-sm font-medium mb-2 flex items-center gap-2">
-                <div className="w-1 h-4 bg-gradient-to-b from-emerald-400 to-transparent" />
+              <label className="block text-slate-300 text-xs md:text-sm font-medium mb-2 flex items-center gap-2">
+                <div className="w-1 h-3 md:h-4 bg-gradient-to-b from-emerald-400 to-transparent" />
                 Email Address
               </label>
               <div className="relative">
@@ -177,7 +177,7 @@ export default function ExpenseLogin() {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   onFocus={() => setFocusedField('email')}
                   onBlur={() => setFocusedField(null)}
-                  className="w-full bg-slate-800/50 border-2 border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-emerald-400 focus:outline-none focus:bg-slate-800 transition-all duration-300"
+                  className="w-full bg-slate-800/50 border-2 border-slate-700 rounded-xl px-4 py-3 text-sm md:text-base text-white placeholder-slate-500 focus:border-emerald-400 focus:outline-none focus:bg-slate-800 transition-all duration-300"
                   placeholder="you@example.com"
                 />
                 <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-500 transition-all duration-300 ${focusedField === 'email' ? 'w-full' : 'w-0'}`} />
@@ -186,8 +186,8 @@ export default function ExpenseLogin() {
 
             {/* Password field */}
             <div className="relative group">
-              <label className="block text-slate-300 text-sm font-medium mb-2 flex items-center gap-2">
-                <div className="w-1 h-4 bg-gradient-to-b from-amber-400 to-transparent" />
+              <label className="block text-slate-300 text-xs md:text-sm font-medium mb-2 flex items-center gap-2">
+                <div className="w-1 h-3 md:h-4 bg-gradient-to-b from-amber-400 to-transparent" />
                 Password
               </label>
               <div className="relative">
@@ -197,7 +197,7 @@ export default function ExpenseLogin() {
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   onFocus={() => setFocusedField('password')}
                   onBlur={() => setFocusedField(null)}
-                  className="w-full bg-slate-800/50 border-2 border-slate-700 rounded-xl px-4 py-3 pr-12 text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none focus:bg-slate-800 transition-all duration-300"
+                  className="w-full bg-slate-800/50 border-2 border-slate-700 rounded-xl px-4 py-3 pr-12 text-sm md:text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none focus:bg-slate-800 transition-all duration-300"
                   placeholder="Enter your password"
                 />
                 <button
@@ -205,13 +205,13 @@ export default function ExpenseLogin() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-emerald-400 transition-colors duration-300"
                 >
-                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  {showPassword ? <EyeOff className="w-4 h-4 md:w-5 md:h-5" /> : <Eye className="w-4 h-4 md:w-5 md:h-5" />}
                 </button>
                 <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 ${focusedField === 'password' ? 'w-full' : 'w-0'}`} />
               </div>
             </div>
 
-            <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center justify-between text-xs md:text-sm">
               <span className="text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer hover:underline">
                 Forgot password?
               </span>
@@ -221,12 +221,12 @@ export default function ExpenseLogin() {
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-emerald-500/50 hover:shadow-2xl transform hover:scale-[1.02] active:scale-95 transition-all duration-300 mt-6 relative overflow-hidden group"
+              className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 text-white font-semibold py-3 md:py-4 rounded-xl shadow-lg hover:shadow-emerald-500/50 hover:shadow-2xl transform hover:scale-[1.02] active:scale-95 transition-all duration-300 mt-4 md:mt-6 relative overflow-hidden group text-sm md:text-base"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-amber-500 via-orange-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Sign In
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300 w-4 h-4 md:w-5 md:h-5" />
               </span>
               <div className="absolute inset-0 flex justify-around">
                 <div className="w-1 h-full bg-white/20 animate-shimmer" style={{ animationDelay: '0s' }} />
@@ -237,7 +237,7 @@ export default function ExpenseLogin() {
           </div>
 
           {/* Footer */}
-          <p className="text-center text-slate-500 text-sm mt-6">
+          <p className="text-center text-slate-500 text-xs md:text-sm mt-6">
             New to hEx.ly?{' '}
             <Link href="/register" className="text-emerald-400 hover:text-emerald-300 font-medium transition-colors cursor-pointer hover:underline">
               Create Account →

@@ -1,6 +1,7 @@
 {
   "name": "hExl.y",
   "short_name": "hExl.y",
+  "description": "Expense Tracker",
   "theme_color": "#0f172a",
   "background_color": "#ffffff",
   "display": "standalone",
