@@ -38,7 +38,7 @@ export default function ExpenseTrackerApp() {
   const [showDateRangePicker, setShowDateRangePicker] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState(''); 
   const [showCategoryPicker, setShowCategoryPicker] = useState(false);
-
+  const [addingTransaction, setAddingTransaction] = useState(false);
 
   const balance = transactions.reduce((sum, tx) =>
     tx.type === 'INCOME' ? sum + tx.amount : sum - tx.amount, 0);
@@ -112,6 +112,7 @@ export default function ExpenseTrackerApp() {
 
   const handleAddTransaction = async () => {
     try {
+      setAddingTransaction(true); 
       await addTransactionToStore({
         title: formData.title,
         amount: Number(formData.amount),
@@ -131,10 +132,12 @@ export default function ExpenseTrackerApp() {
       });
     } catch (e) {
       alert(e.message || 'Failed to add transaction');
+    } finally {
+      setAddingTransaction(false); // End loading
     }
   };
 
-  const isLoading = catLoading || txLoading;
+  const isLoading = catLoading || txLoading || addingTransaction;
 
   const renderHome = () => (
     <div className={`space-y-4 ${isMobile ? 'pb-24' : 'pb-8'}`}>
@@ -862,13 +865,15 @@ export default function ExpenseTrackerApp() {
           </div>
         </div>
 
-        {/* Submit Button - Fixed */}
         <div className="p-6 border-t border-slate-800 flex-shrink-0">
           <button
             onClick={handleAddTransaction}
-            className={`w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 text-white font-semibold ${isMobile ? 'py-3 text-sm' : 'py-4 text-base'} rounded-xl shadow-lg hover:shadow-emerald-500/50 transform hover:scale-[1.02] active:scale-95 transition-all duration-300`}
+            disabled={addingTransaction}
+            className={`w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 text-white font-semibold ${isMobile ? 'py-3 text-sm' : 'py-4 text-base'} rounded-xl shadow-lg hover:shadow-emerald-500/50 transform hover:scale-[1.02] active:scale-95 transition-all duration-300 ${
+              addingTransaction ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
-            Add Transaction
+            {addingTransaction ? 'Adding...' : 'Add Transaction'}
           </button>
         </div>
       </div>
